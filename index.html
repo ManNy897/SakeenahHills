@@ -1,23 +1,118 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My First GitHub Website</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      text-align: center;
-      padding: 50px;
-    }
-    h1 {
-      color: #2c3e50;
-    }
-  </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sakeenah Hills – Rumah Dijual</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
 </head>
-<body>
-  <h1>Hello, world! 👋</h1>
-  <p>Welcome to my GitHub Pages site.</p>
+<body class="bg-gray-50 text-gray-900">
+  <!-- Hero Section with Dark Overlay -->
+  <header class="relative min-h-screen flex flex-col justify-center items-center text-center">
+    <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('images/hero.jpg');"></div>
+    <div class="absolute inset-0 bg-black opacity-40"></div>
+    <div class="relative z-10 text-white px-4">
+      <h1 class="text-4xl md:text-6xl font-bold">Sakeenah Hills</h1>
+      <p class="text-xl md:text-2xl mt-4">Rumah modern dan terjangkau di lingkungan yang indah</p>
+      <a href="#homes" class="mt-6 inline-block bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg shadow-lg">
+        Lihat Rumah
+      </a>
+    </div>
+  </header>
+
+  <!-- About Section -->
+  <section id="about" class="max-w-4xl mx-auto p-6 text-center">
+    <h2 class="text-3xl font-semibold mb-4">Tentang Komunitas</h2>
+    <p class="text-lg text-gray-700">Sakeenah Hills adalah kawasan perumahan modern yang menampilkan 6 rumah eksklusif di lokasi yang tenang. Satu rumah contoh sedang dibangun, dengan lima rumah lainnya tersedia untuk dibangun sesuai permintaan.</p>
+    <a href="https://maps.app.goo.gl/HEHhjeqRAwVhiJVX8" target="_blank" rel="noopener noreferrer" class="mt-4 inline-block bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-lg shadow">
+      Lihat Lokasi di Google Maps
+    </a>
+  </section>
+
+  <!-- Homes Section -->
+  <section id="homes" class="max-w-6xl mx-auto p-6">
+    <h2 class="text-3xl font-semibold text-center mb-8">Rumah yang Tersedia</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- Example Home Card -->
+      <div class="bg-white shadow rounded-xl overflow-hidden">
+        <img src="images/house_1.jpeg" alt="Rumah Contoh" class="w-full h-56 object-cover">
+        <div class="p-4">
+          <h3 class="text-xl font-semibold">Rumah Contoh</h3>
+          <p class="text-lg font-bold text-blue-600 mt-1">Rp 430.000.000</p>
+          <div class="flex flex-wrap items-center gap-4 text-gray-600 mt-2">
+            <div class="flex items-center gap-1">
+              <i data-lucide="bed"></i>
+              <span>3</span>
+            </div>
+            <div class="flex items-center gap-1">
+              <i data-lucide="bath"></i>
+              <span>2</span>
+            </div>
+            <div class="flex items-center gap-1">
+              <i data-lucide="building"></i>
+              <span>1 Lantai</span>
+            </div>
+            <div class="flex items-center gap-1">
+              <i data-lucide="trees"></i>
+              <span>Luas Tanah: 112 m²</span>
+            </div>
+            <div class="flex items-center gap-1">
+              <i data-lucide="ruler"></i>
+              <span>Luas Bangunan: 50 m²</span>
+            </div>
+          </div>
+          <span class="inline-block bg-yellow-300 text-yellow-900 text-sm px-2 py-1 mt-2 rounded">Sedang Dibangun</span>
+          <div class="mt-4">
+            <a href="#virtual-tour" class="inline-block bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded shadow">
+              Lihat Tur Virtual
+            </a>
+          </div>
+        </div>
+      </div>
+      <!-- Placeholder homes -->
+      <div class="bg-white shadow rounded-xl overflow-hidden">
+        <img src="images/house_2.jpeg" alt="Rumah" class="w-full h-56 object-cover">
+        <div class="p-4">
+          <h3 class="text-xl font-semibold">Rumah Mendatang</h3>
+          <p class="text-gray-600">Bangun sesuai permintaan</p>
+          <span class="inline-block bg-green-200 text-green-800 text-sm px-2 py-1 mt-2 rounded">Tersedia untuk Dibangun</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Virtual Tour Section -->
+  <section id="virtual-tour" class="bg-gray-100 py-12 text-center">
+    <h2 class="text-3xl font-semibold mb-6">Jelajahi Rumah Contoh</h2>
+    <div class="max-w-4xl mx-auto">
+      <iframe 
+        src="https://my.matterport.com/show/?m=TZTiMA5d1KR" 
+        frameborder="0" 
+        allowfullscreen 
+        allow="xr-spatial-tracking" 
+        class="w-full h-96 rounded-lg shadow">
+      </iframe>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="max-w-4xl mx-auto p-6 text-center">
+    <h2 class="text-3xl font-semibold mb-4">Hubungi Kami</h2>
+    <form class="space-y-4 max-w-md mx-auto">
+      <input type="text" placeholder="Nama Anda" class="w-full border p-3 rounded" required>
+      <input type="email" placeholder="Email Anda" class="w-full border p-3 rounded" required>
+      <textarea placeholder="Pesan" class="w-full border p-3 rounded" rows="4" required></textarea>
+      <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg w-full">Kirim Pesan</button>
+    </form>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-800 text-gray-300 text-center p-4">
+    <p>&copy; 2025 Sakeenah Hills. Semua hak dilindungi.</p>
+  </footer>
+  <script>
+    lucide.createIcons();
+  </script>
 </body>
 </html>
-d6d8834

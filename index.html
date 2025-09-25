@@ -23,17 +23,24 @@
 </head>
 <body class="bg-gray-50 text-gray-900">
   <!-- Hero Section with Dark Overlay -->
-  <header class="relative min-h-screen flex flex-col justify-center items-center text-center">
-    <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('images/hero.jpg');"></div>
-    <div class="absolute inset-0 bg-black opacity-40"></div>
-    <div class="relative z-10 text-white px-4">
-      <h1 class="text-4xl md:text-6xl font-bold">Sakeenah Hills</h1>
-      <p class="text-xl md:text-2xl mt-4">Rumah modern dan terjangkau di lingkungan yang indah</p>
-      <a href="#homes" class="mt-6 inline-block bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg shadow-lg">
-        Lihat Rumah
-      </a>
-    </div>
-  </header>
+<header class="relative min-h-screen flex flex-col items-center text-center">
+  <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('images/hero.jpg');"></div>
+  <div class="absolute inset-0 bg-black opacity-40"></div>
+
+  <!-- Logo absolutely positioned near the top -->
+  <div class="absolute top-8 left-1/2 transform -translate-x-1/2 z-20">
+    <img src="images/sakeenah_hills_logo.jpg" alt="Sakeenah Hills Logo" class="w-36 h-36 md:w-40 md:h-40 rounded-full border-4 border-white shadow-lg">
+  </div>
+
+  <!-- Hero text remains vertically centered -->
+  <div class="relative z-10 text-white px-4 flex flex-col justify-center flex-1 items-center">
+    <h1 class="text-4xl md:text-6xl font-bold">Sakeenah Hills</h1>
+    <p class="text-xl md:text-2xl mt-4">Rumah modern dan terjangkau di lingkungan yang indah</p>
+    <a href="#homes" class="mt-6 inline-block bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg shadow-lg self-center">
+      Lihat Rumah
+    </a>
+  </div>
+</header>
 
   <!-- About Section -->
   <section id="about" class="max-w-4xl mx-auto p-6 text-center">

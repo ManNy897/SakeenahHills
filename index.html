@@ -4,9 +4,22 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Sakeenah Hills – Rumah Dijual</title>
+  <link rel="icon" href="images/favicon_io/favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" sizes="180x180" href="images/favicon_io/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon_io/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="images/favicon_io/favicon-16x16.png">
+  <link rel="manifest" href="images/favicon_io/site.webmanifest">
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.css"/>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.js"></script>
   <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    #panorama {
+      min-height: 24rem; /* matches Tailwind h-96 */
+    }
+  </style>
+
 </head>
 <body class="bg-gray-50 text-gray-900">
   <!-- Hero Section with Dark Overlay -->
@@ -85,8 +98,15 @@
     </div>
   </section>
 
+  <section id="pannellum-tour" class="bg-gray-100 py-20 text-center relative">
+    <h2 class="text-3xl font-semibold mb-6">Tur Virtual</h2>
+    <div class="max-w-5xl mx-auto relative">
+      <div id="panorama" class="w-full h-96 rounded-lg shadow mx-auto"></div>
+    </div>
+  </section>
+
   <!-- Virtual Tour Section with Overlay -->
-  <section id="virtual-tour" class="bg-gray-100 py-20 text-center relative">
+<!--   <section id="virtual-tour" class="bg-gray-100 py-20 text-center relative">
     <h2 class="text-3xl font-semibold mb-6">Tur Virtual</h2>
     <div class="max-w-5xl mx-auto relative">
       <iframe id="tourFrame"
@@ -95,10 +115,10 @@
         allowfullscreen 
         allow="xr-spatial-tracking" 
         class="w-full h-96 rounded-lg shadow">
-      </iframe>
+      </iframe> -->
 
       <!-- Lead Capture Overlay -->
-      <div id="leadOverlay" class="hidden absolute inset-0 bg-black bg-opacity-70 flex items-center justify-center">
+<!--       <div id="leadOverlay" class="hidden absolute inset-0 bg-black bg-opacity-70 flex items-center justify-center">
         <div class="bg-white rounded-xl p-6 max-w-md w-full text-center animate-fadeIn">
           <h2 class="text-xl font-semibold mb-4">Lihat Tur Lengkap</h2>
           <p class="mb-4">Masukkan kontak Anda untuk melanjutkan tur virtual.</p>
@@ -112,7 +132,7 @@
         </div>
       </div>
     </div>
-  </section>
+  </section> -->
 
   <!-- Contact Section -->
   <section id="contact" class="max-w-4xl mx-auto p-6 text-center">
@@ -249,6 +269,225 @@
     }
   });
   </script>
+<script>
+  pannellum.viewer('panorama', {   
+    "default": {
+        "firstScene": "living_room",
+        "author": "Sakeenah Hills",
+        "sceneFadeDuration": 1000
+    },
+
+    "scenes": {
+        "living_room": {
+            "title": "Ruang Tamu",
+            "hfov": 110,
+            "pitch": -15.551339879805223,
+            "yaw": -34.84678054207925,
+            "type": "equirectangular",
+            "panorama": "images/pano_living_room.png",
+            "hotSpotDebug": true,
+            "hotSpots": [
+                {
+                    "pitch": -28.304496817340194,
+                    "yaw": -8.31139226860272,
+                    "type": "scene",
+                    "text": "Ruang Makan",
+                    "sceneId": "dining_room"
+                },
+                {
+                    "pitch": -6.9999724692018965,
+                    "yaw": 17.33428973530522,
+                    "type": "scene",
+                    "text": "Dapur",
+                    "sceneId": "kitchen"
+                },
+                {
+                    "pitch": -6.397769014650033,
+                    "yaw": -17.682872978120805,
+                    "type": "scene",
+                    "text": "Kamar Anak",
+                    "sceneId": "bedroom_kids"
+                },
+                {
+                    "pitch": -4.3410296107621,
+                    "yaw": -160.03169811682704,
+                    "type": "scene",
+                    "text": "Luar",
+                    "sceneId": "outside"
+                },
+                {
+                    "pitch": -4.037004146936619,
+                    "yaw": -38.34995115802835,
+                    "type": "scene",
+                    "text": "Kamar Utama",
+                    "sceneId": "bedroom_master"
+                }
+            ]
+        },
+
+        "dining_room": {
+            "title": "Ruang Makan",
+            "hfov": 110,
+            "yaw": 5,
+            "type": "equirectangular",
+            "panorama": "images/pano_dining_room.png",
+            "hotSpotDebug": true,
+            "hotSpots": [
+                {
+                    "pitch": -4.760863248783126,
+                    "yaw": -148.37296555708156,
+                    "type": "scene",
+                    "text": "Kamar Anak",
+                    "sceneId": "bedroom_kids",
+                    "targetYaw": -23,
+                    "targetPitch": 2
+                },
+                {
+                    "pitch": -9.098543124982331,
+                    "yaw": -68.78765849630608,
+                    "type": "scene",
+                    "text": "Dapur",
+                    "sceneId": "kitchen",
+                    "targetYaw": -23,
+                    "targetPitch": 2
+                },
+                {
+                    "pitch": -3.0459945938231807,
+                    "yaw": 146.54684750536725,
+                    "type": "scene",
+                    "text": "Kamar Utama",
+                    "sceneId": "bedroom_master",
+                    "targetYaw": -23,
+                    "targetPitch": 2
+                },
+                {
+                    "pitch": -7.855802197806101,
+                    "yaw": 45.30040527742918,
+                    "type": "scene",
+                    "text": "Ruang Tamu",
+                    "sceneId": "living_room",
+                    "targetYaw": -23,
+                    "targetPitch": 2
+                },
+                {
+                    "pitch": -4.0313916132258925,
+                    "yaw": 80.95729877947522,
+                    "type": "scene",
+                    "text": "Luar",
+                    "sceneId": "outside"
+                },
+                {
+                    "pitch": -9.656966906223138,
+                    "yaw": -172.84296135636188,
+                    "type": "scene",
+                    "text": "Kamar Mandi",
+                    "sceneId": "bathroom"
+                }
+            ]
+        },
+
+        "bedroom_kids": {
+            "title": "Kamar Anak",
+            "hfov": 110,
+            "yaw": 5,
+            "type": "equirectangular",
+            "panorama": "images/pano_kids_bedroom.png",
+            "hotSpotDebug": true,
+            "hotSpots": [
+                {
+                    "pitch": -5.03794830824462,
+                    "yaw": 97.41574213359662,
+                    "type": "scene",
+                    "text": "Ruang Makan",
+                    "sceneId": "dining_room",
+                    "targetYaw": -23,
+                    "targetPitch": 2
+                }
+            ]
+        },
+
+        "bedroom_master": {
+            "title": "Kamar Utama",
+            "hfov": 110,
+            "yaw": 5,
+            "type": "equirectangular",
+            "panorama": "images/pano_master_bedroom.png",
+            "hotSpotDebug": true,
+            "hotSpots": [
+                {
+                    "pitch": -13.898247374967008,
+                    "yaw": -85.22680525587201,
+                    "type": "scene",
+                    "text": "Ruang Makan",
+                    "sceneId": "dining_room",
+                    "targetYaw": -23,
+                    "targetPitch": 2
+                }
+            ]
+        },
+
+        "kitchen": {
+            "title": "Dapur",
+            "hfov": 110,
+            "yaw": 5,
+            "type": "equirectangular",
+            "panorama": "images/pano_kitchen.png",
+            "hotSpotDebug": true,
+            "hotSpots": [
+                {
+                    "pitch": -6.608634833935466,
+                    "yaw": 10.081590149476419,
+                    "type": "scene",
+                    "text": "Ruang Makan",
+                    "sceneId": "dining_room",
+                    "targetYaw": -23,
+                    "targetPitch": 2
+                }
+            ]
+        },
+
+        "outside": {
+            "title": "Luar",
+            "hfov": 110,
+            "yaw": 5,
+            "type": "equirectangular",
+            "panorama": "images/pano_outside.png",
+            "hotSpotDebug": true,
+            "hotSpots": [
+                {
+                    "pitch": 13.796680002004953,
+                    "yaw": -140.9966377440846,
+                    "type": "scene",
+                    "text": "Ruang Tamu",
+                    "sceneId": "living_room",
+                    "targetYaw": -23,
+                    "targetPitch": 2
+                }
+            ]
+        },
+
+        "bathroom": {
+            "title": "Kamar Mandi",
+            "hfov": 110,
+            "yaw": 5,
+            "type": "equirectangular",
+            "panorama": "images/pano_kamar_mandi.png",
+            "hotSpotDebug": true,
+            "hotSpots": [
+                {
+                    "pitch": 13.339842748359306,
+                    "yaw": 152.42578141787146,
+                    "type": "scene",
+                    "text": "Ruang Makan",
+                    "sceneId": "dining_room",
+                    "targetYaw": -23,
+                    "targetPitch": 2
+                }
+            ]
+        }
+    }
+});
+</script>
 
   <style>
     @keyframes fadeIn {

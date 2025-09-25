@@ -15,7 +15,7 @@
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.js"></script>
   <script src="https://unpkg.com/lucide@latest"></script>
   <style>
-    #panorama {
+    #tourFrame {
       min-height: 24rem; /* matches Tailwind h-96 */
     }
   </style>
@@ -108,7 +108,22 @@
   <section id="pannellum-tour" class="bg-gray-100 py-20 text-center relative">
     <h2 class="text-3xl font-semibold mb-6">Tur Virtual</h2>
     <div class="max-w-5xl mx-auto relative">
-      <div id="panorama" class="w-full h-96 rounded-lg shadow mx-auto"></div>
+      <div id="tourFrame" class="w-full h-96 rounded-lg shadow mx-auto"></div>
+
+
+      <div id="leadOverlay" class="hidden absolute inset-0 bg-black bg-opacity-70 flex items-center justify-center">
+        <div class="bg-white rounded-xl p-6 max-w-md w-full text-center animate-fadeIn">
+          <h2 class="text-xl font-semibold mb-4">Lihat Tur Lengkap</h2>
+          <p class="mb-4">Masukkan kontak Anda untuk melanjutkan tur virtual.</p>
+          <form id="leadForm" class="space-y-3">
+            <input type="text" name="name" placeholder="Nama" class="w-full border p-2 rounded" required>
+            <input type="text" name="contact" placeholder="Nomor WhatsApp atau Email" class="w-full border p-2 rounded" required>
+            <p id="leadError" class="text-red-600 hidden text-sm"></p>
+            <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded w-full">Lanjutkan</button>
+          </form>
+          <!-- <button id="skipOverlay" class="text-gray-500 text-sm mt-3 hover:underline">Lanjutkan tanpa mengisi</button> -->
+        </div>
+      </div>
     </div>
   </section>
 
@@ -155,7 +170,7 @@
 
   <!-- Social Links -->
   <div class="flex justify-center space-x-6 py-6 text-3xl">
-    <a href="https://www.instagram.com/sakeenah.living/" target="_blank" class="hover:scale-110 transition-transform text-pink-500">
+    <a href="https://www.instagram.com/sakeenah.hills/" target="_blank" class="hover:scale-110 transition-transform text-pink-500">
       <i class="fab fa-instagram"></i>
     </a>
     <a href="https://www.facebook.com/profile.php?id=61580931691896" target="_blank" class="hover:scale-110 transition-transform text-blue-600">
@@ -185,7 +200,7 @@
 
   const tourFrame = document.getElementById('tourFrame');
   const leadOverlay = document.getElementById('leadOverlay');
-  const skipOverlay = document.getElementById('skipOverlay');
+  // const skipOverlay = document.getElementById('skipOverlay');
   const leadForm = document.getElementById('leadForm');
   const leadError = document.getElementById('leadError');
 
@@ -212,22 +227,23 @@
     retryLeadSubmission(JSON.parse(savedLead));
   }
 
-  if (!localStorage.getItem('leadCaptured')) {
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          setTimeout(() => leadOverlay.classList.remove('hidden'), 30000);
-          observer.unobserve(tourFrame);
-        }
-      });
-    }, { threshold: 0.5 });
-    observer.observe(tourFrame);
-  }
+  // UNCOMMENT THIS FOR MATTERPORT!!
+  // if (!localStorage.getItem('leadCaptured')) {
+  //   const observer = new IntersectionObserver(entries => {
+  //     entries.forEach(entry => {
+  //       if (entry.isIntersecting) {
+  //         setTimeout(() => leadOverlay.classList.remove('hidden'), 30000);
+  //         observer.unobserve(tourFrame);
+  //       }
+  //     });
+  //   }, { threshold: 0.5 });
+  //   observer.observe(tourFrame);
+  // }
 
-  skipOverlay.addEventListener('click', () => {
-    leadOverlay.classList.add('hidden');
-    localStorage.setItem('leadCaptured', 'true');
-  });
+  // skipOverlay.addEventListener('click', () => {
+  //   leadOverlay.classList.add('hidden');
+  //   localStorage.setItem('leadCaptured', 'true');
+  // });
 
   leadForm.addEventListener('submit', (e) => {
     e.preventDefault();
@@ -277,10 +293,11 @@
   });
   </script>
 <script>
-  pannellum.viewer('panorama', {   
+  const viewer = pannellum.viewer('tourFrame', {   
     "default": {
         "firstScene": "living_room",
         "author": "Sakeenah Hills",
+        "autoLoad": true,
         "sceneFadeDuration": 1000
     },
 
@@ -292,7 +309,7 @@
             "yaw": -34.84678054207925,
             "type": "equirectangular",
             "panorama": "images/pano_living_room.jpg",
-            "hotSpotDebug": true,
+            // "hotSpotDebug": true,
             "hotSpots": [
                 {
                     "pitch": -28.304496817340194,
@@ -312,8 +329,8 @@
                     "pitch": -6.397769014650033,
                     "yaw": -17.682872978120805,
                     "type": "scene",
-                    "text": "Kamar Anak",
-                    "sceneId": "bedroom_kids"
+                    "text": "Kamar Utama",
+                    "sceneId": "bedroom_master"
                 },
                 {
                     "pitch": -4.3410296107621,
@@ -326,8 +343,8 @@
                     "pitch": -4.037004146936619,
                     "yaw": -38.34995115802835,
                     "type": "scene",
-                    "text": "Kamar Utama",
-                    "sceneId": "bedroom_master"
+                    "text": "Kamar Anak",
+                    "sceneId": "bedroom_kids"
                 }
             ]
         },
@@ -338,14 +355,13 @@
             "yaw": 5,
             "type": "equirectangular",
             "panorama": "images/pano_dining_room.jpg",
-            "hotSpotDebug": true,
             "hotSpots": [
                 {
                     "pitch": -4.760863248783126,
                     "yaw": -148.37296555708156,
                     "type": "scene",
-                    "text": "Kamar Anak",
-                    "sceneId": "bedroom_kids",
+                    "text": "Kamar Utama",
+                    "sceneId": "bedroom_master",
                     "targetYaw": -23,
                     "targetPitch": 2
                 },
@@ -362,8 +378,8 @@
                     "pitch": -3.0459945938231807,
                     "yaw": 146.54684750536725,
                     "type": "scene",
-                    "text": "Kamar Utama",
-                    "sceneId": "bedroom_master",
+                    "text": "Kamar Anak",
+                    "sceneId": "bedroom_kids",
                     "targetYaw": -23,
                     "targetPitch": 2
                 },
@@ -399,7 +415,6 @@
             "yaw": 5,
             "type": "equirectangular",
             "panorama": "images/pano_kids_bedroom.jpg",
-            "hotSpotDebug": true,
             "hotSpots": [
                 {
                     "pitch": -5.03794830824462,
@@ -419,7 +434,6 @@
             "yaw": 5,
             "type": "equirectangular",
             "panorama": "images/pano_master_bedroom.jpg",
-            "hotSpotDebug": true,
             "hotSpots": [
                 {
                     "pitch": -13.898247374967008,
@@ -439,7 +453,6 @@
             "yaw": 5,
             "type": "equirectangular",
             "panorama": "images/pano_kitchen.jpg",
-            "hotSpotDebug": true,
             "hotSpots": [
                 {
                     "pitch": -6.608634833935466,
@@ -458,14 +471,13 @@
             "hfov": 120,
             "yaw": 5,
             "type": "equirectangular",
-            "panorama": "images/pano_outside.jpg",
-            "hotSpotDebug": true,
+            "panorama": "images/pano_front_view.jpg",
             "hotSpots": [
                 {
-                    "pitch": 13.796680002004953,
-                    "yaw": -140.9966377440846,
+                    "pitch": 1.1424433103266145,
+                    "yaw": 8.158464906320049,
                     "type": "scene",
-                    "text": "Ruang Tamu",
+                    "text": "Masuk",
                     "sceneId": "living_room",
                     "targetYaw": -23,
                     "targetPitch": 2
@@ -479,7 +491,6 @@
             "yaw": 5,
             "type": "equirectangular",
             "panorama": "images/pano_kamar_mandi.jpg",
-            "hotSpotDebug": true,
             "hotSpots": [
                 {
                     "pitch": 13.339842748359306,
@@ -494,6 +505,19 @@
         }
     }
 });
+
+let changedScene = false;
+let showedLeadCapture = false;
+
+if (!localStorage.getItem('leadCaptured')) {
+
+  viewer.on('scenechange', function(sceneId) {
+    if(changedScene && !showedLeadCapture) {
+      leadOverlay.classList.remove('hidden');
+    }
+    changedScene = true;
+  });
+}
 </script>
 
   <style>

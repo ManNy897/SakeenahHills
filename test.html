@@ -527,91 +527,11 @@ if (!localStorage.getItem('leadCaptured')) {
       to { opacity: 1; transform: scale(1); }
     }
     .animate-fadeIn { animation: fadeIn 0.3s ease-out forwards; }
-  </style>
 
-<script>
-// Check if user is on iOS
-function isIOS() {
-  return /iPad|iPhone|iPod/.test(navigator.userAgent);
-}
-
-// Function to toggle pseudo fullscreen for iOS
-function togglePseudoFullscreen() {
-  const container = document.getElementById('tourFrame');
-  if (!container.classList.contains('ios-fullscreen')) {
-    container.classList.add('ios-fullscreen');
-    document.body.classList.add('no-scroll');
-  } else {
-    container.classList.remove('ios-fullscreen');
-    document.body.classList.remove('no-scroll');
-  }
-}
-
-// Create a fullscreen button compatible with Android, Desktop, and iOS
-function addFullscreenButton(viewer) {
-  const controls = document.querySelector('.pnlm-controls');
-  if (!controls) return;
-
-  const fsButton = document.createElement('div');
-  fsButton.className = 'pnlm-fullscreen-toggle-button pnlm-control';
-  fsButton.title = 'Fullscreen';
-  fsButton.innerHTML = '<i class="fa fa-expand"></i>';
-
-  fsButton.addEventListener('click', function () {
-    const elem = document.getElementById('tourFrame');
-
-    if (isIOS()) {
-      togglePseudoFullscreen();
-    } else {
-      if (!document.fullscreenElement) {
-        elem.requestFullscreen?.() || elem.webkitRequestFullscreen?.();
-      } else {
-        document.exitFullscreen?.() || document.webkitExitFullscreen?.();
-      }
+    .pnlm-fullscreen-toggle-button {
+      display: block !important;
+      z-index: 9999 !important; /* Keep it on top */
     }
-  });
-
-  controls.appendChild(fsButton);
-}
-
-// Once Pannellum loads, add the custom fullscreen button
-viewer.on('load', function () {
-  addFullscreenButton(viewer);
-});
-</script>
-
-<style>
-/* 🧭 iOS Pseudo-Fullscreen Mode */
-.ios-fullscreen {
-  position: fixed !important;
-  top: 0;
-  left: 0;
-  width: 100vw !important;
-  height: 100vh !important;
-  z-index: 9999;
-  background-color: #000;
-}
-
-.no-scroll {
-  overflow: hidden;
-}
-
-/* Make the fullscreen button look consistent with Pannellum's style */
-.pnlm-fullscreen-toggle-button {
-  cursor: pointer;
-  width: 32px;
-  height: 32px;
-  border-radius: 4px;
-  background: rgba(0,0,0,0.5);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.pnlm-fullscreen-toggle-button i {
-  color: white;
-  font-size: 16px;
-}
-</style>
+  </style>
 </body>
 </html>

@@ -108,7 +108,11 @@
   <section id="pannellum-tour" class="bg-gray-100 py-20 text-center relative">
     <h2 class="text-3xl font-semibold mb-6">Tur Virtual</h2>
     <div class="max-w-5xl mx-auto relative">
-      <div id="tourFrame" class="w-full h-96 rounded-lg shadow mx-auto"></div>
+      <div id="tourFrame" class="w-full h-96 rounded-lg shadow mx-auto">
+          <button id="customFullscreenBtn" class="absolute top-4 right-4 bg-white bg-opacity-90 p-3 rounded-full shadow-lg hover:bg-opacity-100 z-10">
+      <i data-lucide="maximize"></i>
+      </div>
+    </button>
 
 
       <div id="leadOverlay" class="hidden absolute inset-0 bg-black bg-opacity-70 flex items-center justify-center">
@@ -519,6 +523,22 @@ if (!localStorage.getItem('leadCaptured')) {
     changedScene = true;
   });
 }
+
+document.getElementById('customFullscreenBtn').addEventListener('click', () => {
+  const tourFrame = document.getElementById('tourFrame');
+  
+  // Try native fullscreen first
+  if (tourFrame.requestFullscreen) {
+    if (!document.fullscreenElement) {
+      tourFrame.requestFullscreen();
+    } else {
+      document.exitFullscreen();
+    }
+  } else {
+    // Fallback: toggle CSS fullscreen for iOS
+    tourFrame.classList.toggle('fullscreen-mode');
+  }
+});
 </script>
 
   <style>
@@ -527,10 +547,13 @@ if (!localStorage.getItem('leadCaptured')) {
       to { opacity: 1; transform: scale(1); }
     }
     .animate-fadeIn { animation: fadeIn 0.3s ease-out forwards; }
-
-    .pnlm-fullscreen-toggle-button {
-      display: block !important;
-      z-index: 9999 !important; /* Keep it on top */
+    .fullscreen-mode {
+      position: fixed !important;
+      top: 0 !important;
+      left: 0 !important;
+      width: 100vw !important;
+      height: 100vh !important;
+      z-index: 9999 !important;
     }
   </style>
 </body>

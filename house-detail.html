@@ -487,6 +487,30 @@ if (!localStorage.getItem('leadCaptured')) {
 }
 </script>
 
+<script>
+  // Initialize Lucide icons
+  // lucide.createIcons();
+
+  // Gallery scroll functionality
+  const gallery = document.getElementById('gallery');
+  const prevBtn = document.getElementById('prevBtn');
+  const nextBtn = document.getElementById('nextBtn');
+
+  prevBtn.addEventListener('click', () => {
+    gallery.scrollBy({
+      left: -gallery.offsetWidth,
+      behavior: 'smooth'
+    });
+  });
+
+  nextBtn.addEventListener('click', () => {
+    gallery.scrollBy({
+      left: gallery.offsetWidth,
+      behavior: 'smooth'
+    });
+  });
+</script>
+
   <style>
     @keyframes fadeIn {
       from { opacity: 0; transform: scale(0.95); }

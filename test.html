@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sakeenah Hills – Rumah Dijual</title>
+  <link rel="icon" href="images/favicon_io/favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" sizes="180x180" href="images/favicon_io/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon_io/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="images/favicon_io/favicon-16x16.png">
+  <link rel="manifest" href="images/favicon_io/site.webmanifest">
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.css"/>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.js"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    #tourFrame {
+      min-height: 24rem; /* matches Tailwind h-96 */
+    }
+  </style>
+
+</head>
+<body class="bg-gray-50 text-gray-900">
+  <!-- Hero Section with Dark Overlay -->
+<header class="relative min-h-screen flex flex-col items-center text-center">
+  <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('images/hero.jpg');"></div>
+  <div class="absolute inset-0 bg-black opacity-40"></div>
+
+  <!-- Logo absolutely positioned near the top -->
+  <div class="absolute top-8 left-1/2 transform -translate-x-1/2 z-20">
+    <img src="images/sakeenah_hills_logo.jpg" alt="Sakeenah Hills Logo" class="w-36 h-36 md:w-40 md:h-40 rounded-full border-4 border-white shadow-lg">
+  </div>
+
+  <!-- Hero text remains vertically centered -->
+  <div class="relative z-10 text-white px-4 flex flex-col justify-center flex-1 items-center">
+    <h1 class="text-4xl md:text-6xl font-bold">Sakeenah Hills</h1>
+    <p class="text-xl md:text-2xl mt-4">Rumah modern dan terjangkau di lingkungan yang indah</p>
+    <a href="#homes" class="mt-6 inline-block bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg shadow-lg self-center">
+      Lihat Rumah
+    </a>
+  </div>
+</header>
+
+  <!-- About Section -->
+  <section id="about" class="max-w-4xl mx-auto p-6 text-center">
+    <h2 class="text-3xl font-semibold mb-4">Tentang Komunitas</h2>
+    <p class="text-lg text-gray-700">Sakeenah Hills berlokasi di <strong>Sumber Agung</strong>, sebuah area yang sejuk dan asri dengan udara yang bersih. Akses ke kompleks sangat mudah karena terhubung langsung dengan jalan utama dan memiliki jalan aspal hampir sampai ke gerbang. Lokasinya dekat dengan beberapa sekolah seperti SMA 7 dan Insan Kamil, serta hanya sekitar 5 menit dari pusat Kemiling yang memiliki banyak pilihan tempat makan. Kompleks ini terdiri dari total 6 rumah eksklusif, masing-masing dilengkapi dengan pompa air sendiri.</p>
+    <a href="https://maps.app.goo.gl/HEHhjeqRAwVhiJVX8" target="_blank" rel="noopener noreferrer" class="mt-4 inline-block bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-lg shadow">
+      Lihat Lokasi di Google Maps
+    </a>
+  </section>
+
+  <!-- Homes Section -->
+  <section id="homes" class="max-w-6xl mx-auto p-6">
+    <h2 class="text-3xl font-semibold text-center mb-8">Rumah yang Tersedia</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- Example Home Card -->
+      <div class="bg-white shadow rounded-xl overflow-hidden">
+        <img src="images/house_1.jpeg" alt="Rumah Contoh" class="w-full h-56 object-cover">
+        <div class="p-4">
+          <h3 class="text-xl font-semibold">
+            <a href="house-detail.html" class="text-blue-600 hover:underline">Rumah Contoh</a>
+          </h3>
+          <p class="text-lg font-bold text-blue-600 mt-1">Rp 430.000.000</p>
+          <div class="flex flex-wrap items-center gap-4 text-gray-600 mt-2">
+            <div class="flex items-center gap-1">
+              <i data-lucide="bed"></i>
+              <span>2</span>
+            </div>
+            <div class="flex items-center gap-1">
+              <i data-lucide="bath"></i>
+              <span>1</span>
+            </div>
+            <div class="flex items-center gap-1">
+              <i data-lucide="building"></i>
+              <span>1 Lantai</span>
+            </div>
+            <div class="flex items-center gap-1">
+              <i data-lucide="trees"></i>
+              <span>Luas Tanah: 112 m²</span>
+            </div>
+            <div class="flex items-center gap-1">
+              <i data-lucide="ruler"></i>
+              <span>Luas Bangunan: 50 m²</span>
+            </div>
+          </div>
+          <span class="inline-block bg-yellow-300 text-yellow-900 text-sm px-2 py-1 mt-2 rounded">Sedang Dibangun</span>
+          <div class="mt-4">
+            <a href="#pannellum-tour" class="inline-block bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded shadow">
+              Lihat Tur Virtual
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-white shadow rounded-xl overflow-hidden">
+        <img src="images/house_2.jpeg" alt="Rumah" class="w-full h-56 object-cover">
+        <div class="p-4">
+          <h3 class="text-xl font-semibold">Rumah Mendatang</h3>
+          <p class="text-gray-600">Bangun sesuai permintaan</p>
+          <span class="inline-block bg-green-200 text-green-800 text-sm px-2 py-1 mt-2 rounded">Tersedia untuk Dibangun</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="pannellum-tour" class="bg-gray-100 py-20 text-center relative">
+    <h2 class="text-3xl font-semibold mb-6">Tur Virtual</h2>
+    <div class="max-w-5xl mx-auto relative">
+      <div id="tourFrame" class="w-full h-96 rounded-lg shadow mx-auto"></div>
+
+
+      <div id="leadOverlay" class="hidden absolute inset-0 bg-black bg-opacity-70 flex items-center justify-center">
+        <div class="bg-white rounded-xl p-6 max-w-md w-full text-center animate-fadeIn">
+          <h2 class="text-xl font-semibold mb-4">Lihat Tur Lengkap</h2>
+          <p class="mb-4">Masukkan kontak Anda untuk melanjutkan tur virtual.</p>
+          <form id="leadForm" class="space-y-3">
+            <input type="text" name="name" placeholder="Nama" class="w-full border p-2 rounded" required>
+            <input type="text" name="contact" placeholder="Nomor WhatsApp atau Email" class="w-full border p-2 rounded" required>
+            <p id="leadError" class="text-red-600 hidden text-sm"></p>
+            <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded w-full">Lanjutkan</button>
+          </form>
+          <!-- <button id="skipOverlay" class="text-gray-500 text-sm mt-3 hover:underline">Lanjutkan tanpa mengisi</button> -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Virtual Tour Section with Overlay -->
+<!--   <section id="virtual-tour" class="bg-gray-100 py-20 text-center relative">
+    <h2 class="text-3xl font-semibold mb-6">Tur Virtual</h2>
+    <div class="max-w-5xl mx-auto relative">
+      <iframe id="tourFrame"
+        src="https://my.matterport.com/show/?m=empty&play=1"
+        frameborder="0" 
+        allowfullscreen 
+        allow="xr-spatial-tracking" 
+        class="w-full h-96 rounded-lg shadow">
+      </iframe> -->
+
+      <!-- Lead Capture Overlay -->
+<!--       <div id="leadOverlay" class="hidden absolute inset-0 bg-black bg-opacity-70 flex items-center justify-center">
+        <div class="bg-white rounded-xl p-6 max-w-md w-full text-center animate-fadeIn">
+          <h2 class="text-xl font-semibold mb-4">Lihat Tur Lengkap</h2>
+          <p class="mb-4">Masukkan kontak Anda untuk melanjutkan tur virtual.</p>
+          <form id="leadForm" class="space-y-3">
+            <input type="text" name="name" placeholder="Nama" class="w-full border p-2 rounded" required>
+            <input type="text" name="contact" placeholder="Nomor WhatsApp atau Email" class="w-full border p-2 rounded" required>
+            <p id="leadError" class="text-red-600 hidden text-sm"></p>
+            <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded w-full">Lanjutkan</button>
+          </form>
+          <button id="skipOverlay" class="text-gray-500 text-sm mt-3 hover:underline">Lanjutkan tanpa mengisi</button>
+        </div>
+      </div>
+    </div>
+  </section> -->
+
+  <!-- Contact Section -->
+  <section id="contact" class="max-w-4xl mx-auto p-6 text-center">
+    <h2 class="text-3xl font-semibold mb-4">Hubungi Kami</h2>
+    <form id="contactForm" class="space-y-4 max-w-md mx-auto">
+      <input type="text" name="name" placeholder="Nama Anda" class="w-full border p-3 rounded" required>
+      <input type="text" name="contact" placeholder="Email atau Nomor WhatsApp" class="w-full border p-3 rounded" required>
+      <textarea name="message" placeholder="Pesan" class="w-full border p-3 rounded" rows="4" required></textarea>
+      <p id="contactError" class="text-red-600 hidden text-sm"></p>
+      <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg w-full">Kirim Pesan</button>
+    </form>
+  </section>
+
+  <!-- Social Links -->
+  <div class="flex justify-center space-x-6 py-6 text-3xl">
+    <a href="https://www.instagram.com/sakeenah.hills/" target="_blank" class="hover:scale-110 transition-transform text-pink-500">
+      <i class="fab fa-instagram"></i>
+    </a>
+    <a href="https://www.facebook.com/profile.php?id=61580931691896" target="_blank" class="hover:scale-110 transition-transform text-blue-600">
+      <i class="fab fa-facebook"></i>
+    </a>
+    <a href="https://wa.me/6281284487002" target="_blank" class="hover:scale-110 transition-transform text-green-600">
+      <i class="fab fa-whatsapp"></i>
+    </a>
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-gray-800 text-gray-300 text-center p-4">
+    <p>&copy; 2025 Sakeenah Hills. Semua hak dilindungi.</p>
+  </footer>
+
+  <script>
+  lucide.createIcons();
+
+  function isValidEmail(email) {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  }
+
+  function isValidWhatsApp(number) {
+    const cleaned = number.replace(/\s|-/g, "");
+    return /^(\+62|0?8)\d{8,11}$/.test(cleaned);
+  }
+
+  const tourFrame = document.getElementById('tourFrame');
+  const leadOverlay = document.getElementById('leadOverlay');
+  // const skipOverlay = document.getElementById('skipOverlay');
+  const leadForm = document.getElementById('leadForm');
+  const leadError = document.getElementById('leadError');
+
+  async function retryLeadSubmission(payload) {
+    for (let i = 0; i < 5; i++) {
+      try {
+        await fetch("https://script.google.com/macros/s/AKfycbyiJckqwXz9ZIb_tYoFBTkEz0YlKD5CcXPR5XiOHRwlp0N_VQ_GmXL7hE4Jqix3DPXU/exec", {
+          method: "POST",
+          body: JSON.stringify(payload)
+        });
+        localStorage.setItem('leadCaptured', 'true');
+        console.log('Lead successfully saved on retry');
+        return;
+      } catch (err) {
+        console.warn('Retry failed, attempt', i + 1);
+        await new Promise(res => setTimeout(res, 2000));
+      }
+    }
+    console.error('All retries failed. Data kept in localStorage.');
+  }
+
+  const savedLead = localStorage.getItem('leadData');
+  if (savedLead && !localStorage.getItem('leadCaptured')) {
+    retryLeadSubmission(JSON.parse(savedLead));
+  }
+
+  // UNCOMMENT THIS FOR MATTERPORT!!
+  // if (!localStorage.getItem('leadCaptured')) {
+  //   const observer = new IntersectionObserver(entries => {
+  //     entries.forEach(entry => {
+  //       if (entry.isIntersecting) {
+  //         setTimeout(() => leadOverlay.classList.remove('hidden'), 30000);
+  //         observer.unobserve(tourFrame);
+  //       }
+  //     });
+  //   }, { threshold: 0.5 });
+  //   observer.observe(tourFrame);
+  // }
+
+  // skipOverlay.addEventListener('click', () => {
+  //   leadOverlay.classList.add('hidden');
+  //   localStorage.setItem('leadCaptured', 'true');
+  // });
+
+  leadForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const formData = new FormData(leadForm);
+    const payload = Object.fromEntries(formData.entries());
+
+    if (!isValidEmail(payload.contact) && !isValidWhatsApp(payload.contact)) {
+      leadError.textContent = "Masukkan email atau nomor WhatsApp Indonesia yang valid (+62 atau 08).";
+      leadError.classList.remove('hidden');
+      return;
+    }
+    leadError.classList.add('hidden');
+
+    localStorage.setItem('leadData', JSON.stringify(payload));
+    localStorage.setItem('leadCaptured', 'true');
+    leadOverlay.classList.add('hidden');
+
+    retryLeadSubmission(payload);
+  });
+
+  const contactForm = document.getElementById('contactForm');
+  const contactError = document.getElementById('contactError');
+
+  contactForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const formData = new FormData(contactForm);
+    const payload = Object.fromEntries(formData.entries());
+
+    if (!isValidEmail(payload.contact) && !isValidWhatsApp(payload.contact)) {
+      contactError.textContent = "Masukkan email atau nomor WhatsApp Indonesia yang valid (+62 atau 08).";
+      contactError.classList.remove('hidden');
+      return;
+    }
+    contactError.classList.add('hidden');
+
+    try {
+      await fetch("https://script.google.com/macros/s/AKfycbyiJckqwXz9ZIb_tYoFBTkEz0YlKD5CcXPR5XiOHRwlp0N_VQ_GmXL7hE4Jqix3DPXU/exec", {
+        method: "POST",
+        body: JSON.stringify(payload)
+      });
+      alert("Pesan Anda telah terkirim! Terima kasih.");
+      contactForm.reset();
+    } catch (error) {
+      alert("Terjadi kesalahan saat mengirim pesan. Silakan coba lagi.");
+      console.error(error);
+    }
+  });
+  </script>
+<script>
+  const viewer = pannellum.viewer('tourFrame', {   
+    "default": {
+        "firstScene": "living_room",
+        "author": "Sakeenah Hills",
+        "autoLoad": true,
+        "sceneFadeDuration": 1000
+    },
+
+    "scenes": {
+        "living_room": {
+            "title": "Ruang Tamu",
+            "hfov": 120,
+            "pitch": -15.551339879805223,
+            "yaw": -34.84678054207925,
+            "type": "equirectangular",
+            "panorama": "images/pano_living_room.jpg",
+            // "hotSpotDebug": true,
+            "hotSpots": [
+                {
+                    "pitch": -28.304496817340194,
+                    "yaw": -8.31139226860272,
+                    "type": "scene",
+                    "text": "Ruang Makan",
+                    "sceneId": "dining_room"
+                },
+                {
+                    "pitch": -6.9999724692018965,
+                    "yaw": 17.33428973530522,
+                    "type": "scene",
+                    "text": "Dapur",
+                    "sceneId": "kitchen"
+                },
+                {
+                    "pitch": -6.397769014650033,
+                    "yaw": -17.682872978120805,
+                    "type": "scene",
+                    "text": "Kamar Utama",
+                    "sceneId": "bedroom_master"
+                },
+                {
+                    "pitch": -4.3410296107621,
+                    "yaw": -160.03169811682704,
+                    "type": "scene",
+                    "text": "Luar",
+                    "sceneId": "outside"
+                },
+                {
+                    "pitch": -4.037004146936619,
+                    "yaw": -38.34995115802835,
+                    "type": "scene",
+                    "text": "Kamar Anak",
+                    "sceneId": "bedroom_kids"
+                }
+            ]
+        },
+
+        "dining_room": {
+            "title": "Ruang Makan",
+            "hfov": 120,
+            "yaw": 5,
+            "type": "equirectangular",
+            "panorama": "images/pano_dining_room.jpg",
+            "hotSpots": [
+                {
+                    "pitch": -4.760863248783126,
+                    "yaw": -148.37296555708156,
+                    "type": "scene",
+                    "text": "Kamar Utama",
+                    "sceneId": "bedroom_master",
+                    "targetYaw": -23,
+                    "targetPitch": 2
+                },
+                {
+                    "pitch": -9.098543124982331,
+                    "yaw": -68.78765849630608,
+                    "type": "scene",
+                    "text": "Dapur",
+                    "sceneId": "kitchen",
+                    "targetYaw": -23,
+                    "targetPitch": 2
+                },
+                {
+                    "pitch": -3.0459945938231807,
+                    "yaw": 146.54684750536725,
+                    "type": "scene",
+                    "text": "Kamar Anak",
+                    "sceneId": "bedroom_kids",
+                    "targetYaw": -23,
+                    "targetPitch": 2
+                },
+                {
+                    "pitch": -7.855802197806101,
+                    "yaw": 45.30040527742918,
+                    "type": "scene",
+                    "text": "Ruang Tamu",
+                    "sceneId": "living_room",
+                    "targetYaw": -23,
+                    "targetPitch": 2
+                },
+                {
+                    "pitch": -4.0313916132258925,
+                    "yaw": 80.95729877947522,
+                    "type": "scene",
+                    "text": "Luar",
+                    "sceneId": "outside"
+                },
+                {
+                    "pitch": -9.656966906223138,
+                    "yaw": -172.84296135636188,
+                    "type": "scene",
+                    "text": "Kamar Mandi",
+                    "sceneId": "bathroom"
+                }
+            ]
+        },
+
+        "bedroom_kids": {
+            "title": "Kamar Anak",
+            "hfov": 120,
+            "yaw": 5,
+            "type": "equirectangular",
+            "panorama": "images/pano_kids_bedroom.jpg",
+            "hotSpots": [
+                {
+                    "pitch": -5.03794830824462,
+                    "yaw": 97.41574213359662,
+                    "type": "scene",
+                    "text": "Ruang Makan",
+                    "sceneId": "dining_room",
+                    "targetYaw": -23,
+                    "targetPitch": 2
+                }
+            ]
+        },
+
+        "bedroom_master": {
+            "title": "Kamar Utama",
+            "hfov": 120,
+            "yaw": 5,
+            "type": "equirectangular",
+            "panorama": "images/pano_master_bedroom.jpg",
+            "hotSpots": [
+                {
+                    "pitch": -13.898247374967008,
+                    "yaw": -85.22680525587201,
+                    "type": "scene",
+                    "text": "Ruang Makan",
+                    "sceneId": "dining_room",
+                    "targetYaw": -23,
+                    "targetPitch": 2
+                }
+            ]
+        },
+
+        "kitchen": {
+            "title": "Dapur",
+            "hfov": 120,
+            "yaw": 5,
+            "type": "equirectangular",
+            "panorama": "images/pano_kitchen.jpg",
+            "hotSpots": [
+                {
+                    "pitch": -6.608634833935466,
+                    "yaw": 10.081590149476419,
+                    "type": "scene",
+                    "text": "Ruang Makan",
+                    "sceneId": "dining_room",
+                    "targetYaw": -23,
+                    "targetPitch": 2
+                }
+            ]
+        },
+
+        "outside": {
+            "title": "Luar",
+            "hfov": 120,
+            "yaw": 5,
+            "type": "equirectangular",
+            "panorama": "images/pano_front_view.jpg",
+            "hotSpots": [
+                {
+                    "pitch": 1.1424433103266145,
+                    "yaw": 8.158464906320049,
+                    "type": "scene",
+                    "text": "Masuk",
+                    "sceneId": "living_room",
+                    "targetYaw": -23,
+                    "targetPitch": 2
+                }
+            ]
+        },
+
+        "bathroom": {
+            "title": "Kamar Mandi",
+            "hfov": 120,
+            "yaw": 5,
+            "type": "equirectangular",
+            "panorama": "images/pano_kamar_mandi.jpg",
+            "hotSpots": [
+                {
+                    "pitch": 13.339842748359306,
+                    "yaw": 152.42578141787146,
+                    "type": "scene",
+                    "text": "Ruang Makan",
+                    "sceneId": "dining_room",
+                    "targetYaw": -23,
+                    "targetPitch": 2
+                }
+            ]
+        }
+    }
+});
+
+let changedScene = false;
+let showedLeadCapture = false;
+
+if (!localStorage.getItem('leadCaptured')) {
+
+  viewer.on('scenechange', function(sceneId) {
+    if(changedScene && !showedLeadCapture) {
+      leadOverlay.classList.remove('hidden');
+      showedLeadCapture = true;
+    }
+    changedScene = true;
+  });
+}
+</script>
+
+  <style>
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+    .animate-fadeIn { animation: fadeIn 0.3s ease-out forwards; }
+  </style>
+
+<script>
+// Check if user is on iOS
+function isIOS() {
+  return /iPad|iPhone|iPod/.test(navigator.userAgent);
+}
+
+// Function to toggle pseudo fullscreen for iOS
+function togglePseudoFullscreen() {
+  const container = document.getElementById('tourFrame');
+  if (!container.classList.contains('ios-fullscreen')) {
+    container.classList.add('ios-fullscreen');
+    document.body.classList.add('no-scroll');
+  } else {
+    container.classList.remove('ios-fullscreen');
+    document.body.classList.remove('no-scroll');
+  }
+}
+
+// Create a fullscreen button compatible with Android, Desktop, and iOS
+function addFullscreenButton(viewer) {
+  const controls = document.querySelector('.pnlm-controls');
+  if (!controls) return;
+
+  const fsButton = document.createElement('div');
+  fsButton.className = 'pnlm-fullscreen-toggle-button pnlm-control';
+  fsButton.title = 'Fullscreen';
+  fsButton.innerHTML = '<i class="fa fa-expand"></i>';
+
+  fsButton.addEventListener('click', function () {
+    const elem = document.getElementById('tourFrame');
+
+    if (isIOS()) {
+      togglePseudoFullscreen();
+    } else {
+      if (!document.fullscreenElement) {
+        elem.requestFullscreen?.() || elem.webkitRequestFullscreen?.();
+      } else {
+        document.exitFullscreen?.() || document.webkitExitFullscreen?.();
+      }
+    }
+  });
+
+  controls.appendChild(fsButton);
+}
+
+// Once Pannellum loads, add the custom fullscreen button
+viewer.on('load', function () {
+  addFullscreenButton(viewer);
+});
+</script>
+
+<style>
+/* 🧭 iOS Pseudo-Fullscreen Mode */
+.ios-fullscreen {
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  width: 100vw !important;
+  height: 100vh !important;
+  z-index: 9999;
+  background-color: #000;
+}
+
+.no-scroll {
+  overflow: hidden;
+}
+
+/* Make the fullscreen button look consistent with Pannellum's style */
+.pnlm-fullscreen-toggle-button {
+  cursor: pointer;
+  width: 32px;
+  height: 32px;
+  border-radius: 4px;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pnlm-fullscreen-toggle-button i {
+  color: white;
+  font-size: 16px;
+}
+</style>
+</body>
+</html>

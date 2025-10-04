@@ -514,6 +514,7 @@ if (!localStorage.getItem('leadCaptured')) {
   viewer.on('scenechange', function(sceneId) {
     if(changedScene && !showedLeadCapture) {
       leadOverlay.classList.remove('hidden');
+      showedLeadCapture = true;
     }
     changedScene = true;
   });

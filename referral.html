@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Program Referral | Sakeenah Hills</title>
+  <link rel="icon" href="images/favicon_io/favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" sizes="180x180" href="images/favicon_io/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon_io/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="images/favicon_io/favicon-16x16.png">
+  <link rel="manifest" href="images/favicon_io/site.webmanifest">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    body {
+      background-color: #f8fafc;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+  <!-- Header -->
+  <header class="p-4 flex items-center justify-center relative">
+    <a href="index.html" class="flex items-center text-blue-600 hover:underline absolute left-4">
+      <i data-lucide="arrow-left" class="mr-2"></i>
+      Kembali
+    </a>
+    <img src="images/sakeenah_hills_logo.jpg" alt="Sakeenah Hills Logo" class="w-24 h-24 md:w-28 md:h-28 rounded-full border-2 border-white shadow-lg">
+  </header>
+
+  <main class="flex-1 p-6 max-w-lg mx-auto space-y-10">
+
+    <!-- Title -->
+<section class="bg-white rounded-2xl shadow p-4">
+  <h2 class="text-xl font-semibold text-center mb-3 text-blue-600">Dapatkan Penghasilan Hingga 4 Juta dari Referral!</h2>
+  <p class="text-gray-700 text-sm leading-snug">
+    <strong>Dapatkan Rp10.000 untuk setiap referral yang berhasil!</strong>
+    <br><br>
+    Caranya mudah:
+    <br>
+    1. Daftar dengan formulir di bawah<br>
+    2. Dapatkan kode dan link referral via email<br>
+    3. Bagikan link ke teman di <strong>Bandar Lampung</strong><br>
+    4. Dapatkan Rp10.000 setiap kali ada yang menonton tur virtual dan mengisi formulir
+    <br><br>
+    Pembayaran setiap akhir hari ke akun DANA kamu.
+    <br><br>
+    <strong>Program berlaku hingga dana Rp2.000.000 habis</strong> — buruan bagikan linkmu!
+  </p>
+  
+  <div class="mt-4 p-3 bg-gradient-to-r from-yellow-50 to-orange-50 border-l-4 border-orange-400 rounded">
+    <p class="text-gray-800 font-semibold mb-1">💰 BONUS BESAR!</p>
+    <p class="text-gray-700 text-sm">
+      Jika referral kamu <strong>membeli rumah</strong>, bonus tambahan <strong class="text-orange-600">Rp2.000.000</strong>! 
+      <span class="text-xs text-gray-600 block mt-1">Total potensi: <strong>hingga Rp4.000.000</strong></span>
+    </p>
+  </div>
+</section>
+
+<!-- Progress Bar -->
+<section class="bg-white p-4 rounded-2xl shadow mt-4">
+  <h2 class="font-semibold mb-2 text-gray-700 text-sm">Dana yang tersisa</h2>
+  <div class="w-full bg-gray-200 rounded-full h-3 mb-2">
+    <div id="fundsBar" class="bg-blue-600 h-3 rounded-full" style="width: 100%; transition: width 1s ease-in-out;"></div>
+  </div>
+  <p id="fundsText" class="text-xs text-gray-500 text-right">Memuat...</p>
+</section>
+
+    <!-- Sign-up Form -->
+    <section class="bg-white rounded-2xl shadow p-6">
+      <form id="referralSignUp" class="space-y-4">
+        <input type="text" name="name" placeholder="Nama Lengkap" required
+               class="w-full p-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-400">
+        <input type="email" name="email" placeholder="Email" required
+               class="w-full p-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-400">
+        <input type="tel" name="phone" placeholder="Nomor WhatsApp" pattern="0[0-9]{2,3}[0-9]{4}[0-9]{4,5}" title="Format: 08XXXXXXXXXX" required
+               class="w-full p-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-400">
+        <input type="text" name="rekening" placeholder="Nomor DANA" required
+               class="w-full p-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-400">
+        <button type="submit"
+                class="w-full bg-blue-600 text-white p-3 rounded-xl font-semibold hover:bg-blue-700">
+          Daftar Sekarang
+        </button>
+      </form>
+      <p id="signupMessage" class="text-center text-sm mt-4 hidden"></p>
+    </section>
+
+
+    <!-- Check Stats -->
+    <section class="bg-white p-6 rounded-2xl shadow">
+      <h2 class="text-xl font-semibold text-gray-700 mb-4">Cek Statistik Referral Kamu</h2>
+      <div class="flex space-x-2">
+        <input id="codeInput" type="text" placeholder="Kode Referral Kamu"
+               class="flex-1 p-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-400">
+        <button id="checkStatsBtn"
+                class="bg-blue-600 text-white p-3 rounded-xl font-semibold hover:bg-blue-700">
+          Cek
+        </button>
+      </div>
+      <div id="statsResult" class="mt-4 text-sm text-gray-700"></div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="text-center text-gray-500 text-sm p-4">
+    &copy; 2025 Sakeenah Hills. Semua Hak Dilindungi.
+  </footer>
+
+  <script>
+    lucide.createIcons();
+
+    const scriptUrl = "https://script.google.com/macros/s/AKfycbw2yjN0maXiHtkiXKLReCHzfoZ9kKgtGl0_ux2sr_kIrfXGhB6V_XKpA8oyMsck73k69A/exec";
+
+    // === Fetch Funds ===
+    async function loadFunds() {
+      try {
+        const res = await fetch(`${scriptUrl}?action=funds`);
+        console.log(res)
+        const data = await res.json();
+        console.log(JSON.stringify(data))
+        const percent = Math.max(0, Math.min(100, (data.remaining / data.maxReferrals) * 100));
+        const moneyRemaining = 2000000 * (data.remaining / data.maxReferrals)
+        document.getElementById("fundsBar").style.width = percent + "%";
+        document.getElementById("fundsText").textContent =
+          `Hanya sisa Rp ${moneyRemaining.toLocaleString().replace(",", ".")} dari Rp 2.000.000`;
+      } catch {
+        document.getElementById("fundsText").textContent = "Gagal memuat data dana.";
+      }
+    }
+
+    // === Register ===
+    document.getElementById("referralSignUp").addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const form = e.target;
+      const data = Object.fromEntries(new FormData(form).entries());
+      document.getElementById("signupMessage").classList.remove("hidden");
+      document.getElementById("signupMessage").textContent = "Mengirim...";
+      try {
+        const res = await fetch(`${scriptUrl}?action=register`, {
+          method: "POST",
+          body: JSON.stringify(data),
+        });
+        console.log(res)
+        const result = await res.json();
+        if (result.status === "success") {
+          console.log("success");
+          document.getElementById("signupMessage").textContent =
+            "Link referral kamu telah dikirim ke email!";
+          form.reset();
+        } else {
+          console.log("failure");
+          document.getElementById("signupMessage").textContent =
+            "Gagal mendaftar: " + result.message;
+        }
+      } catch {
+        console.log("error");
+        document.getElementById("signupMessage").textContent = "Terjadi kesalahan.";
+      }
+    });
+
+    // === Check Stats ===
+    document.getElementById("checkStatsBtn").addEventListener("click", async () => {
+      const code = document.getElementById("codeInput").value.trim();
+      if (!code) return;
+      document.getElementById("statsResult").textContent = "Memuat...";
+      try {
+        const res = await fetch(`${scriptUrl}?action=stats&code=${code}`);
+        const data = await res.json();
+        document.getElementById("statsResult").innerHTML = `
+          <p><strong>Name:</strong> ${data.name}</p>
+          <p><strong>Name:</strong> ${data.email}</p>
+          <p><strong>Total Referral:</strong> ${data.total_referrals}</p>
+          <p><strong>Total Dibayar:</strong> Rp ${data.total_paid.toLocaleString().replace(",", ".")}</p>
+        `;
+      } catch {
+        document.getElementById("statsResult").textContent = "Gagal memuat statistik.";
+      }
+    });
+
+    loadFunds();
+  </script>
+
+</body>
+</html>

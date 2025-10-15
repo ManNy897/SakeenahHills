@@ -21,6 +21,9 @@
   </style>
 </head>
 <body class="bg-gray-50 text-gray-900">
+  <a href="referral.html" class="fixed top-8 right-8 z-50 bg-yellow-400 text-white px-4 py-2 rounded-full shadow-lg hover:shadow-xl hover:bg-yellow-500 transition-all duration-300 animate-bounce">
+    <span class="font-bold">💰 Dapatkan Hingga 4 Juta!</span>
+  </a>
   <!-- Back Button -->
 <header class="p-4 flex items-center justify-center relative">
   <a href="index.html" class="flex items-center text-blue-600 hover:underline absolute left-4">
@@ -164,6 +167,7 @@
 
   <script>
   lucide.createIcons();
+  const scriptUrl = "https://script.google.com/macros/s/AKfycbw2yjN0maXiHtkiXKLReCHzfoZ9kKgtGl0_ux2sr_kIrfXGhB6V_XKpA8oyMsck73k69A/exec"
 
   function isValidEmail(email) {
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
@@ -181,9 +185,9 @@
   const leadError = document.getElementById('leadError');
 
   async function retryLeadSubmission(payload) {
-    for (let i = 0; i < 5; i++) {
+    for (let i = 0; i < 3; i++) {
       try {
-        await fetch("https://script.google.com/macros/s/AKfycbyiJckqwXz9ZIb_tYoFBTkEz0YlKD5CcXPR5XiOHRwlp0N_VQ_GmXL7hE4Jqix3DPXU/exec", {
+        await fetch(scriptUrl, {
           method: "POST",
           body: JSON.stringify(payload)
         });
@@ -257,7 +261,7 @@
     contactError.classList.add('hidden');
 
     try {
-      await fetch("https://script.google.com/macros/s/AKfycbyiJckqwXz9ZIb_tYoFBTkEz0YlKD5CcXPR5XiOHRwlp0N_VQ_GmXL7hE4Jqix3DPXU/exec", {
+      await fetch(`${scriptUrl}?action=lead`, {
         method: "POST",
         body: JSON.stringify(payload)
       });

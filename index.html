@@ -190,7 +190,7 @@
   </footer>
 
   <script>
-  const scriptUrl = "https://script.google.com/macros/s/AKfycbxK6OHJgcZZ4hVgXkLTBmoeayb6IkF-vkxpXpGiRAINRz7-slv8bebVMBjCJ57_EefMQQ/exec"
+  const scriptUrl = "https://script.google.com/macros/s/AKfycbwXxMwy6CpmgrvHuH2LlAmXFuDmr9vxbWpvFu9KfVYjFYdOXlsizCeqt3l9NjCmWhlyYw/exec"
 
   lucide.createIcons();
 
@@ -200,7 +200,17 @@
 
   function isValidWhatsApp(number) {
     const cleaned = number.replace(/\s|-/g, "");
-    return /^(\+62|0?8)\d{8,11}$/.test(cleaned);
+    return /^08\d{8,11}$/.test(cleaned);
+  }
+
+  function normalizeLeadInput(input) {
+    // Check if it's an email
+    if (input.includes('@')) {
+      return input.trim().toLowerCase(); // Normalize email
+    }
+    
+    // It's a phone number - remove all non-digits
+    return input.replace(/\D/g, '');
   }
 
   const tourFrame = document.getElementById('tourFrame');
@@ -264,11 +274,14 @@
     const payload = Object.fromEntries(formData.entries());
 
     if (!isValidEmail(payload.contact) && !isValidWhatsApp(payload.contact)) {
-      leadError.textContent = "Masukkan email atau nomor WhatsApp Indonesia yang valid (+62 atau 08).";
+      leadError.textContent = "Masukkan email yang valid atau nomor WhatsApp dimulai dengan 08.";
       leadError.classList.remove('hidden');
       return;
     }
+
     leadError.classList.add('hidden');
+
+    payload.contact = normalizeLeadInput(payload.contact);
 
     localStorage.setItem('leadData', JSON.stringify(payload));
     localStorage.setItem('leadCaptured', 'true');
@@ -286,11 +299,12 @@
     const payload = Object.fromEntries(formData.entries());
 
     if (!isValidEmail(payload.contact) && !isValidWhatsApp(payload.contact)) {
-      contactError.textContent = "Masukkan email atau nomor WhatsApp Indonesia yang valid (+62 atau 08).";
+      contactError.textContent = "Masukkan email atau nomor WhatsApp Indonesia yang valid (08).";
       contactError.classList.remove('hidden');
       return;
     }
     contactError.classList.add('hidden');
+    payload.contact = normalizeLeadInput(payload.contact);
 
     try {
       await fetch(`${scriptUrl}?action=lead`, {
@@ -304,6 +318,7 @@
       console.error(error);
     }
   });
+
   </script>
 <script>
   const viewer = pannellum.viewer('tourFrame', {   

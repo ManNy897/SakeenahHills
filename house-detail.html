@@ -242,7 +242,7 @@
     const payload = Object.fromEntries(formData.entries());
 
     if (!isValidEmail(payload.contact) && !isValidWhatsApp(payload.contact)) {
-      leadError.textContent = "Masukkan email atau nomor WhatsApp Indonesia yang valid (+62 atau 08).";
+      leadError.textContent = "Masukkan email yang valid atau nomor WhatsApp dimulai dengan 08.";
       leadError.classList.remove('hidden');
       return;
     }
@@ -265,7 +265,7 @@
     const payload = Object.fromEntries(formData.entries());
 
     if (!isValidEmail(payload.contact) && !isValidWhatsApp(payload.contact)) {
-      contactError.textContent = "Masukkan email atau nomor WhatsApp Indonesia yang valid (+62 atau 08).";
+      contactError.textContent = "Masukkan email yang valid atau nomor WhatsApp dimulai dengan 08.";
       contactError.classList.remove('hidden');
       return;
     }

@@ -197,11 +197,6 @@
     // 3. Determine the code to use (URL parameter takes precedence)
     let refCode = urlRefCode;
 
-    // If no 'ref' parameter in the URL, try to retrieve from localStorage
-    if (!refCode) {
-        refCode = localStorage.getItem('referralCode');
-    }
-
     // 4. If a valid refCode exists, save it (for persistence) AND fill the input field
     if (refCode && codeInput) {
         // Save to localStorage (if it came from the URL, this ensures the latest is saved)

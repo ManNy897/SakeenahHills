@@ -13,6 +13,7 @@
   <link rel="manifest" href="images/favicon_io/site.webmanifest">
 
   <!-- ⚡ Preload Tailwind, load async to avoid render-block -->
+  <link rel="preload" as="image" href="images/hero.jpg">
   <link rel="stylesheet" href="assets/tailwind.min.css">
 
   <!-- ⚡ Preload critical smaller CSS -->
@@ -38,16 +39,23 @@
   <span class="font-bold">💰 Dapatkan Hingga 4 Juta!</span>
 </a>
   <!-- Hero Section with Dark Overlay -->
-<header class="relative min-h-screen flex flex-col items-center text-center">
-  <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('images/hero.jpg');"></div>
+<header class="relative min-h-screen flex flex-col items-center text-center overflow-hidden">
+  <picture>
+    <source srcset="images/hero.jpg" type="image/jpg">
+    <img 
+      src="images/hero.jpg" 
+      alt="Sakeenah Hills"
+      class="absolute inset-0 w-full h-full object-cover"
+      fetchpriority="high"
+      decoding="async"
+    >
+  </picture>
   <div class="absolute inset-0 bg-black opacity-40"></div>
 
-  <!-- Logo absolutely positioned near the top -->
   <div class="absolute top-8 left-1/2 transform -translate-x-1/2 z-20">
-    <img src="images/sakeenah_hills_logo.jpg" alt="Sakeenah Hills Logo" class="w-36 h-36 md:w-40 md:h-40 rounded-full border-4 border-white shadow-lg">
+    <img src="images/sakeenah_hills_logo.jpg" alt="Logo" class="w-36 h-36 md:w-40 md:h-40 rounded-full border-4 border-white shadow-lg">
   </div>
 
-  <!-- Hero text remains vertically centered -->
   <div class="relative z-10 text-white px-4 flex flex-col justify-center flex-1 items-center">
     <h1 class="text-4xl md:text-6xl font-bold">Sakeenah Hills</h1>
     <p class="text-xl md:text-2xl mt-4">Rumah modern dan terjangkau di lingkungan yang indah</p>

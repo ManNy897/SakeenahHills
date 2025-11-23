@@ -19,6 +19,15 @@
       min-height: 24rem; /* matches Tailwind h-96 */
     }
   </style>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17720590914"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'AW-17720590914');
+  </script>
 </head>
 <body class="bg-gray-50 text-gray-900">
   <a href="referral.html" class="fixed top-8 right-8 z-50 bg-yellow-400 text-white px-4 py-2 rounded-full shadow-lg hover:shadow-xl hover:bg-yellow-500 transition-all duration-300 animate-bounce">
@@ -166,6 +175,18 @@
   </footer>
 
   <script>
+    function gtag_report_conversion(url) {
+      var callback = function () {
+        if (typeof(url) != 'undefined') {
+          window.location = url;
+        }
+      };
+      gtag('event', 'conversion', {
+          'send_to': 'AW-17720590914/CF1xCPvv6L4bEMKE64FC',
+          'event_callback': callback
+      });
+      return false;
+    }
   lucide.createIcons();
   const scriptUrl = "https://script.google.com/macros/s/AKfycbwXxMwy6CpmgrvHuH2LlAmXFuDmr9vxbWpvFu9KfVYjFYdOXlsizCeqt3l9NjCmWhlyYw/exec"
 
@@ -238,6 +259,7 @@
 
   leadForm.addEventListener('submit', (e) => {
     e.preventDefault();
+    gtag_report_conversion();
     const formData = new FormData(leadForm);
     const payload = Object.fromEntries(formData.entries());
 
